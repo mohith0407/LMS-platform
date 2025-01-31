@@ -19,7 +19,7 @@ app.use(cookieParser());
 app.use(morgan('dev'));
 app.use(
     cors({
-      origin: "https://lms-fun.onrender.com",
+      origin: "https://lms-fun.netlify.app",
       credentials: true,
     })
   );
