@@ -7,7 +7,7 @@ import { IoIosLock, IoIosRefresh } from "react-icons/io";
 import { FiMoreVertical } from "react-icons/fi";
 import Layout from "../../Layout/Layout";
 import { useNavigate } from "react-router-dom";
-import { cancelCourseBundle } from "../../Redux/Slices/RazorpaySlice";
+// import { cancelCourseBundle } from "../../Redux/Slices/RazorpaySlice";
 
 export default function Profile() {
   const navigate = useNavigate();
@@ -58,12 +58,12 @@ export default function Profile() {
     setIsUpdating(false);
   }
 
-  async function handleCancelSubscription() {
-    const res = await dispatch(cancelCourseBundle());
-    if (res?.payload?.success) {
-      await dispatch(getUserData());
-    }
-  }
+  // async function handleCancelSubscription() {
+  //   const res = await dispatch(cancelCourseBundle());
+  //   if (res?.payload?.success) {
+  //     await dispatch(getUserData());
+  //   }
+  // }
 
   useEffect(() => {
     setIschanged(userInput.name !== userData?.fullName || userInput.avatar);
@@ -142,13 +142,13 @@ export default function Profile() {
                     className="text-gray-700 w-full flex items-center gap-2 dark:text-white px-3 pb-2 border-b-[1px] border-gray-300"
                     onClick={() => navigate("change-password")}
                   >
-                    {/* <IoIosLock /> Change password
+                    <IoIosLock /> Change password
                   </button>
                   <button
                     className="text-[#ff1414] dark:text-red-300 px-3 w-full flex items-center gap-2"
                     onClick={() => navigate("reset-password")}
-                  > */}
-                    {/* <IoIosRefresh /> Reset password */}
+                  >
+                    <IoIosRefresh /> Reset password
                   </button>
                 </div>
               </dialog>
@@ -188,14 +188,14 @@ export default function Profile() {
               disabled={true}
             />
             {/* subscription */}
-            <InputBox
+            {/* <InputBox
               label={"Subscription"}
               name={"subscription"}
               type={"text"}
-              value={userData?.subscription?.status || "Not-Active"}
+             
               className="md:w-[48%] w-[100%]"
               disabled={true}
-            />
+            /> */}
           </div>
           {/* submit button */}
           <div className="w-full flex md:flex-row flex-col md:justify-between justify-center md:gap-0 gap-3">
@@ -208,7 +208,7 @@ export default function Profile() {
             </button>
 
             {/* show cancel subscription btn if Active */}
-            {userData?.subscription?.status === "active" && (
+            {/* {userData?.subscription?.status === "active" && (
               <button
                 type="button"
                 onClick={handleCancelSubscription}
@@ -216,10 +216,12 @@ export default function Profile() {
               >
                 Cancel Subscription
               </button>
-            )}
+            )} */}
           </div>
         </form>
       </section>
     </Layout>
   );
 }
+
+//  value={userData?.subscription?.status || "Not-Active"}

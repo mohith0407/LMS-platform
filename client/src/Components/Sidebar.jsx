@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../Redux/Slices/AuthSlice";
 import { Link, useNavigate } from "react-router-dom";
-import { AiFillCloseCircle } from "react-icons/ai";
+// import { AiFillCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import {
   FaHome,
